@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"> -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <title></title>
     <link rel="stylesheet" href="./style3.css">
     <link rel="stylesheet"
@@ -20,8 +20,7 @@
         height: 100%;
         background-color: #eee;
         overflow-x: hidden;
-        /* font-size: 62.5%; */
-        font-size: 80.5%;
+        font-size: 62.5%;
       }
 
       .container {
@@ -36,7 +35,9 @@
         transform: translate(-50%, -50%);
         width: 35rem;
         height: 51rem;
-        border-radius: 3px;
+        /* width: 45rem;
+        height: 66rem; */
+        border-radius: 10px;
         box-shadow: 0.5rem 1rem 3rem rgba(0, 0, 0, 0.7);
       }
 
@@ -46,7 +47,9 @@
         top: 0;
         width: 100%;
         height: 60%;
+        border-radius: 10px 10px 4px 4px;
         display: none;
+        padding: 1.5rem;
         /* overflow-y: hidden; */
       }
 
@@ -54,9 +57,9 @@
         position: relative;
         width: 95%;
         height: 95%;
-        margin: 0 auto;
-
-
+        margin: auto;
+        vertical-align: middle;
+        font-size: 2rem;
         overflow: hidden;
       }
 
@@ -71,7 +74,7 @@
 
       .description {
         position: absolute;
-        top: 39rem;
+        top: 38rem;
         margin: auto 4.2rem;
         width: 26.6rem;
       }
@@ -126,7 +129,7 @@
       <div class="container">
         <div class="cards">
           <div class="card div1" style="background-color:skyblue">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat
             </p>
           </div>
           <div class="card div2" style="background-color:pink">
@@ -157,6 +160,7 @@
               </div>
             </div> -->
           </div>
+
           <div class="description">
             <div class="description__title"><span>안나 카레리나</span></div>
             <div class="description__title hide"><span>노인과 바다</span></div>
@@ -168,7 +172,6 @@
             <div class="description__text hide"><span>안녕하세요</span></div>
             <div class="description__text hide"><span>More demos soon =)</span></div>
           </div>
-        </div>
       </div>
 
     </div>
@@ -263,12 +266,9 @@
           let count = cards.length;
           if (count > this.index +4) {
             this.blocks.push(cards[this.index +5]);
-            console.log('이게 실행이 되긴 해?');
           }
           else {
             this.blocks.push(shd);
-            console.log('정상행위');
-            console.log(this.blocks);
           }
           shd.classList.remove('current');
           this.index === count ? this.index = 0 : this.index++;
@@ -288,7 +288,6 @@
       };
 
       var initScene = function() {
-        console.log('세팅카운트');
         block.b2caclH =
         block.heigth * (1 - block.b2scale) * (1 / block.b2scale) / 2
         + block.upHeigth * (1 / block.b2scale);
@@ -309,7 +308,7 @@
       initScene();
 
       var drag = {
-        degree: 2.8,
+        degree: 2.4,
         upHeight: 1.7,
         maxDrag: 78,
         b2scale: 0.98,
@@ -390,19 +389,15 @@
       var touchZone = document.querySelector('.cards')
       var hammer = new Hammer.Manager(touchZone);
       hammer.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 5}));
-      // hammer.on('panmove', function(e){
-      //   console.log(e);
-      // })
       hammer.on('pan', function(e){
         if (e.deltaX <= 0) e.deltaX = 0;
         if (e.deltaY >= 0) e.deltaY = 0;
-
+        block.interact = true;
         drag.dx = Math.sqrt(Math.pow(e.deltaX, 2) + Math.pow(e.deltaY, 2));
         if (!drag.dx) return;
         if (drag.frameBusy) return;
         drag.frameBusy = true;
         requestAnimationFrame(dragBlock);
-        console.log('pan moving');
       })
       hammer.on("panend", function (e) {
         if (Math.abs(drag.dx) < drag.maxDrag) {
@@ -414,73 +409,33 @@
           setTimeout(descriptions.swapDescription.bind(descriptions), descriptions.timeout);
           requestAnimationFrame(throwBlock);
         }
-        console.log('panend');
       })
 
 
-      // function bindDrag() {
-      //   $(document).on("mousedown touchstart", ".slide1", function (e) {
-      //     const startX = e.pageX || e.originalEvent.touches[0].pageX;
-      //     const startY = e.pageY || e.originalEvent.touches[0].pageY;
-      //     block.interact = true;
-      //
-      //     $(document).on("mousemove touchmove", function (e) {
-      //       let curX = e.pageX || e.originalEvent.touches[0].pageX;
-      //       let curY = e.pageY || e.originalEvent.touches[0].pageY;
-      //
-      //       if (curX - startX <= 0) curX = startX;
-      //       if (curY - startY >= 0) curY = startY;
-      //
-      //       drag.dx = Math.sqrt(Math.pow(curX - startX, 2) + Math.pow(curY - startY, 2));
-      //
-      //       if (!drag.dx) return;
-      //       if (drag.frameBusy) return;
-      //       drag.frameBusy = true;
-      //       requestAnimationFrame(dragBlock);
-      //     });
-      //
-      //     $(document).on("mouseup touchend", function (e) {
-      //       $(document).off("mousemove touchmove mouseup touchend");
-      //       if (Math.abs(drag.dx) < drag.maxDrag) {
-      //         drag.dx = 0;
-      //         requestAnimationFrame(dragBlock);
-      //       }
-      //       else {
-      //         descriptions.animateDescription();
-      //         setTimeout(descriptions.swapDescription.bind(descriptions), descriptions.timeout);
-      //         curBlocks.blocks[1].children[0].play();
-      //         requestAnimationFrame(throwBlock);
-      //       }
-      //     });
-      //   });
-      // };
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-      // function animationDone(e) {
-      //   var origin = e.target;
-      //   if(e.animationName === 'fadeOutLeft'){
-      //     origin.classList.remove('current');
-      //     origin.classList.add('previous');
-      //
-      //     if (!origin.nextElementSibling) {
-      //       alert('더 이상 존재하는 소설이 없습니다.')
-      //     }
-      //     origin.nextElementSibling.classList.remove('next');
-      //     origin.nextElementSibling.classList.add('current');
-      //     console.log(e);
-      //   }
-      // }
-      //
-      // cards.addEventListener('animationend', animationDone);
-
-
+      function prevAnimation() {
+        let initDel = 500;
+        let frames = drag.maxDrag;
+        let spd = 15;
+        for (let i = 1; i < frames; i++) {
+          setTimeout(() => {
+            if (!block.interact) {
+              drag.dx = i;
+              if (drag.frameBusy) return;
+              requestAnimationFrame(dragBlock);
+            }
+          }, initDel + spd * i);
+        }
+        for (let i = frames; i >= 0; i--) {
+          setTimeout(() => {
+            if (!block.interact) {
+              drag.dx = i;
+              if (drag.frameBusy) return;
+              requestAnimationFrame(dragBlock);
+            }
+          }, initDel + spd * (frames * 2 + 1 - i));
+        }
+      }
+      prevAnimation()
     }()
 
     </script>

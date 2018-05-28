@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style3.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.1/hammer.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" charset="utf-8"></script>
     <style>
 
       *, *:before, *:after {
@@ -20,6 +20,8 @@
         height: 100%;
         background-color: #eee;
         overflow-x: hidden;
+        /* font-size: 62.5%; */
+        font-size: 80.5%;
       }
 
       .container {
@@ -45,7 +47,17 @@
         width: 100%;
         height: 60%;
         display: none;
-        overflow-y: hidden;
+        /* overflow-y: hidden; */
+      }
+
+      .card p {
+        position: relative;
+        width: 95%;
+        height: 95%;
+        margin: 0 auto;
+
+
+        overflow: hidden;
       }
 
       .current{
@@ -57,6 +69,56 @@
         display: block;
       }
 
+      .description {
+        position: absolute;
+        top: 39rem;
+        margin: auto 4.2rem;
+        width: 26.6rem;
+      }
+      .description__line {
+        position: absolute;
+        top: 3.5rem;
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+      }
+      .description__title, .description__text {
+        position: absolute;
+        will-change: transform, opacity;
+        transform: translateZ(0);
+        opacity: 1;
+        transition: all 0.25s cubic-bezier(0.74, 0.05, 0.94, 0.36);
+      }
+      .description__title {
+        width: 100%;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+      .description__text {
+        top: 5rem;
+        font-size: 1.7rem;
+        font-weight: 300;
+        color: #aaa;
+        transition-delay: 0.03s;
+      }
+      .description__text.hide {
+        transition-delay: 0.28s;
+      }
+      .fadeout-up {
+        opacity: 0;
+        transform: translate3D(0, -2rem, 0);
+      }
+      .hide {
+        opacity: 0;
+        transform: translate3D(0, 2rem, 0);
+        transition: all 0.25s cubic-bezier(0.05, 0.67, 0.47, 0.99);
+        transition-delay: 0.25s;
+      }
+      .fadein-up {
+        opacity: 1;
+        transform: translate3D(0, 0, 0);
+      }
+
+
     </style>
   </head>
   <body>
@@ -64,8 +126,8 @@
       <div class="container">
         <div class="cards">
           <div class="card div1" style="background-color:skyblue">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
           </div>
           <div class="card div2" style="background-color:pink">
 
@@ -95,6 +157,17 @@
               </div>
             </div> -->
           </div>
+          <div class="description">
+            <div class="description__title"><span>안나 카레리나</span></div>
+            <div class="description__title hide"><span>노인과 바다</span></div>
+            <div class="description__title hide"><span>La Crusc, Italy</span></div>
+            <div class="description__title hide"><span>La Crusc, Italy</span></div>
+            <div class="description__line"></div>
+            <div class="description__text"><span>How about you explore cultural events in La Crusc?</span></div>
+            <div class="description__text hide"><span>두번째 문구</span></div>
+            <div class="description__text hide"><span>안녕하세요</span></div>
+            <div class="description__text hide"><span>More demos soon =)</span></div>
+          </div>
         </div>
       </div>
 
@@ -102,7 +175,10 @@
 
     <script>
     window.onload = function(){
-      var cards = [].slice.call(document.querySelectorAll('.card'));
+      const cards = [].slice.call(document.querySelectorAll('.card'));
+      const titles = [].slice.call(document.querySelectorAll(".description__title"));
+      const texts = [].slice.call(document.querySelectorAll(".description__text"));
+
 
       var fromTo = (from, to, prgrs = 0) => from + (to - from) * prgrs;
 
@@ -135,6 +211,48 @@
           return `perspective(${val}${el})`;
         }
       };
+
+      var descriptions = {
+        index: 0,
+        timeout: 550,
+        titles: titles.slice(),
+        texts: texts.slice(),
+
+        animateDescription: function() {
+          this.titles[0].classList.add("fadeout-up");
+          this.titles[1].classList.add("fadein-up");
+          this.texts[0].classList.add("fadeout-up");
+          this.texts[1].classList.add("fadein-up");
+        },
+
+        swapDescription: function() {
+          let shdC = this.titles.shift();
+          let shdT = this.texts.shift();
+
+          let count = titles.length;
+          if (count > this.index + 4) {
+            this.titles.push(countries[this.index + 5]);
+            this.texts.push(texts[this.index + 5]);
+          }
+          else {
+            this.titles.push(shdC);
+            this.texts.push(shdT);
+          }
+          this.index === count ? this.index = 0 : this.index++;
+          this.initDescriptions();
+        },
+
+        initDescriptions: function () {
+          let length = this.titles.length;
+          this.titles[0].classList.remove("hide", "fadein-up");
+          this.titles[length - 1].classList.add("hide")
+          this.titles[length - 1].classList.remove("fadeout-up");
+          this.texts[0].classList.remove("hide", "fadein-up");
+          this.texts[length - 1].classList.add("hide")
+          this.texts[length - 1].classList.remove("fadeout-up");
+        }
+      };
+
 
       var curBlocks = {
         blocks: cards.slice(),
@@ -270,11 +388,12 @@
 
       // function bindDrag() {
       var touchZone = document.querySelector('.cards')
-      var hammer = new Hammer(touchZone);
+      var hammer = new Hammer.Manager(touchZone);
+      hammer.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 5}));
       // hammer.on('panmove', function(e){
       //   console.log(e);
       // })
-      hammer.on('panmove', function(e){
+      hammer.on('pan', function(e){
         if (e.deltaX <= 0) e.deltaX = 0;
         if (e.deltaY >= 0) e.deltaY = 0;
 
@@ -291,11 +410,13 @@
           requestAnimationFrame(dragBlock);
         }
         else {
+          descriptions.animateDescription();
+          setTimeout(descriptions.swapDescription.bind(descriptions), descriptions.timeout);
           requestAnimationFrame(throwBlock);
         }
         console.log('panend');
       })
-    
+
 
       // function bindDrag() {
       //   $(document).on("mousedown touchstart", ".slide1", function (e) {

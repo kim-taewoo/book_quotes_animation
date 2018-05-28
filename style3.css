@@ -1,0 +1,44 @@
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ccc;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.cards {
+  width: 50%;
+  margin: 0 auto;
+  height: 400px;
+  position: relative;
+}
+
+.card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.div1 {
+  background-color: green;
+}
+
+.div2 {
+  background-color: skyblue;
+}
+
+.div3 {
+  background-color: gray;
+}
+
+.div4 {
+  background-color: pink;
+}

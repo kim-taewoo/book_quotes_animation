@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <link rel="stylesheet" href="submenu.css">
+  </head>
+  <body>
+    <br>
+    <b>Plus Expanded For More Options</b>
+    <br>
+    Click on plus to expand options and obviously minus would show less.
+    <br>
+    <div class="container">
+      <div class="picture "></div>
+
+      <div class="navigation">
+        <div class="nav_btns">
+          <i class=" icon-action-undo" aria-hidden="true"></i>
+          <i class="nav_btn icon-heart" ></i>
+          <i class="nav_btn_r icon-bell" aria-hidden="true"></i>
+          <i class="nav_btn icon-bubble" aria-hidden="true"></i>
+        </div>
+        <div id="plusButton" class="plus">
+          <div class="plusHor"></div>
+          <div class="plusVer "></div>
+        </div>
+      </div>
+       <div class="options">
+         <i class=" icon-camera" aria-hidden="true"></i>
+         <i class=" icon-picture" aria-hidden="true"></i>
+         <i class=" icon-camrecorder" aria-hidden="true"></i>
+       </div>
+    </div>
+
+    <div class=""></div>
+
+    <script type="text/javascript">
+    var plusButton = document.getElementById('plusButton');
+    var plusVer = document.querySelector('.plusVer');
+    var picture = document.querySelector('.picture');
+    var options = document.querySelector('.options');
+    var nav_btns = document.querySelector('.nav_btns')
+    plusButton.addEventListener('click', function(e){
+      toggleClass(plusVer,'plusVer_active');
+      toggleClass(picture,'picture_up');
+      toggle(options);
+      toggleClass(options,'options_show');
+      toggleClass(nav_btns,'nav_btns_hide');
+    });
+
+    function toggleClass(el, x) {
+      if ( -1 !== el.className.indexOf(x) ) {
+        el.className = el.className.replace( " "+x, "" );
+      } else {
+        el.className += " "+x;
+      }
+    }
+
+    var show = function (elem) {
+    	elem.style.display = 'block';
+    };
+
+    // Hide an element
+    var hide = function (elem) {
+    	elem.style.display = 'none';
+    };
+
+    // Toggle element visibility
+    var toggle = function (elem) {
+
+    	// If the element is visible, hide it
+    	if (window.getComputedStyle(elem).display === 'block') {
+    		hide(elem);
+    		return;
+    	}
+    	show(elem);
+    };
+    </script>
+  </body>
+</html>

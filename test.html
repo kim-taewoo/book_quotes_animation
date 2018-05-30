@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #div1 {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <p>안녕하세요</p>
+      <p>Hello Everyone</p>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var t = document.getElementById('div1');
+    t.addEventListener('click', function(e){
+      t.style.height = '100vh';
+      t.style.weight = '100vw';
+    })
+  </script>
+</html>

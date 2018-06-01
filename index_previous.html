@@ -160,10 +160,10 @@
         transform: rotateY(180deg);
         /* 35
         51 */
-        top: -1rem;
-        left: -1rem;
-        width: 37rem;
-        height: 56rem;
+        top: -3rem;
+        left: -3rem;
+        width: 41rem;
+        height: 57rem;
         background-color: #fff;
         border-radius: 0;
         /* overflow-y: auto; */
@@ -179,11 +179,11 @@
         height: 100%;
         font-size: 2rem;
         display: none;
-        overflow-y: hidden;
+        /* overflow-y: auto; */
       }
 
-      .back-card > .content {
-        overflow-y: scroll;
+      .back-card .content {
+        overflow-y: auto;
         position: relative;
         top:0;
         width: 100%;
@@ -288,35 +288,14 @@
       opacity: 0;
       padding: 0;
       user-select: none;
-      font-size: 2.4rem;
+      font-size: 24px;
       color: #fff;
       text-align: left;
-      /* background-color: red; */
-      }
-
-      .options .switchBtn {
-        background-color: red;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        float: left;
-        width: 15%;
-        height: 100%;
-        cursor: pointer;
-      }
-
-      .switchBtn a {
-
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .switchBtn.active {
-        background-color: green;
+      background-color: red;
       }
 
       .options input {
-        width: 70%;
+        width: 85%;
         height: 100%;
         float:left;
         font-size: 2.4rem;
@@ -430,88 +409,6 @@
       }
       }
 
-      /* 채팅면 구현 */
-
-
-      .comment-wrapper {
-        text-align: left;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      }
-
-      .follower {
-        text-align: left;
-        justify-content: flex-end;
-      }
-
-      .sub {
-        justify-content: flex-end;
-      }
-
-
-      .profile-image {
-        width: 4rem;
-        height: 4rem;
-        border-radius: 2rem;
-        background-image: url('./sana.jpg');
-        background-position: center;
-        background-size: cover;
-      }
-
-      .sub .profile-image {
-        width: 2.4rem;
-        height: 2.4rem;
-        border-radius: 1.2rem;
-      }
-
-      .comment_content{
-        text-align: left;
-        position: relative;
-        /* font-size: 0.82rem; */
-        font-size: 1.4rem;
-        background-color: #eee;
-        padding: 0.5rem 1rem;
-        border-radius: 0.3rem;
-        max-width: 22rem;
-        word-wrap: break-word;
-        box-shadow: 0.1rem 0.1rem 0.1rem #eee;
-      }
-
-      .main .comment_content{
-        background-color: #fff;
-        color:black;
-      }
-
-      .sub .comment_content {
-        max-width: 19.8rem;
-      }
-
-      .num-liked {
-        width: 3.8rem;
-        height: 2.2rem;
-        color: blue;
-        background-color: white;
-        border-radius: 1.1rem;
-        box-shadow: 0.2rem 0.2rem 0.2rem #ccc;
-        padding: 0.4rem;
-        position: absolute;
-        bottom: 0;
-        right: -5%;
-      }
-
-      a {
-        text-decoration: none;
-        color: rgb(77, 102, 224);
-      }
-
-      .comment_options {
-        padding: 0 1rem;
-        font-size: 1.2rem;
-      }
-
-
     </style>
   </head>
   <body>
@@ -547,109 +444,8 @@
         <div class="back">
           <div class="back-card">
             <div class="content">
-              <div class="comment-wrapper main">
-                <div class="comment">
-                  <div class="comment_content">
-                    <span class="name"><a class="" href="#">사나</a></span>
-                    <span class="content"> pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                    <div class="num-liked">
-                      <i class="icon-like"> 3</i>
-                    </div>
-                  </div>
-                  <div class="comment_options">
-                    <span class="comment-main_options__like">
-                      <a href="#">좋아요</a>
-                    </span>
-
-                    <span class="comment_options__reply">
-                      <a href="#">· 댓글 달기</a>
-                    </span>
-
-                    <span class="comment_options__date">
-                    · 1시간 전
-                    </span>
-                  </div>
-                </div>
-                <div class="profile-image"></div>
-              </div>
-              <div class="comment-wrapper follower">
-                <div class="profile-image" style="background-image:url('mina.jpg')"></div>
-                <div class="comment">
-                  <div class="comment_content">
-                    <span class="name"><a class="" href="#">미나</a></span>
-                    <span class="content"> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                    <div class="num-liked">
-                      <i class="icon-like"> 3</i>
-                    </div>
-                  </div>
-                  <div class="comment_options">
-                    <span class="comment_options__like">
-                      <a href="#">좋아요</a>
-                    </span>
-
-                    <span class="comment_options__reply">
-                      <a href="#">· 댓글 달기</a>
-                    </span>
-
-                    <span class="comment_options__date">
-                    · 1시간 전
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="comment-wrapper sub">
-                <div class="profile-image" style="background-image:url('./tzuyu.jpg')"></div>
-                <div class="comment">
-                  <div class="comment_content">
-                    <span class="name"><a class="" href="#">쯔위</a></span>
-                    <span class="content">occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                    <div class="num-liked">
-                      <i class="icon-like"> 3</i>
-                    </div>
-                  </div>
-                  <div class="comment_options">
-                    <span class="comment_options__like">
-                      <a href="#">좋아요</a>
-                    </span>
-
-                    <span class="comment_options__reply">
-                      <a href="#">· 댓글 달기</a>
-                    </span>
-
-                    <span class="comment_options__date">
-                    · 1시간 전
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="comment-wrapper main">
-                <div class="comment">
-                  <div class="comment_content">
-                    <span class="name"><a class="" href="#">사나</a></span>
-                    <span class="content">in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                    <div class="num-liked">
-                      <i class="icon-like"> 3</i>
-                    </div>
-                  </div>
-                  <div class="comment_options">
-                    <span class="comment-main_options__like">
-                      <a href="#">좋아요</a>
-                    </span>
-
-                    <span class="comment_options__reply">
-                      <a href="#">· 댓글 달기</a>
-                    </span>
-
-                    <span class="comment_options__date">
-                    · 1시간 전
-                    </span>
-                  </div>
-                </div>
-                <div class="profile-image"></div>
-              </div>
-
-
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div class="navigation">
               <div class="nav_btns">
@@ -664,9 +460,6 @@
               </div>
             </div>
             <div class="options">
-              <div class="switchBtn">
-                <a class="" href="#"><i class="icon-key"></i></a>
-              </div>
               <input class="add" type="text" name="" value="">
               <div class="button1">
                 <i class="icon-pencil"></i>
@@ -698,8 +491,6 @@
               <div class="button1">
                 <i class="icon-pencil"></i>
               </div>
-
-
               <!-- <textarea placeholder="내용을 입력하세요" name="name" rows="8" cols="80"></textarea> -->
             </div>
 
@@ -1109,73 +900,21 @@
       	show(elem);
       };
 
-      var add_html_0 =
-      '<div class="comment-wrapper '
-
-      var add_html_1 = [
-        '">',
-        '<div class="comment">',
-          '<div class="comment_content">',
-            '<span class="name"><a class="" href="#">사나</a></span>',
-            '<span class="content">'].join('\n');
-
-      var add_html_2 = [
-            '</span>',
-            '<div class="num-liked">',
-              '<i class="icon-like"> 3</i>',
-            '</div>',
-          '</div>',
-          '<div class="comment_options">',
-            '<span class="comment-main_options__like">',
-              '<a href="#">좋아요</a>',
-            '</span>',
-
-            '<span class="comment_options__reply">',
-              '<a href="#">· 댓글 달기</a>',
-            '</span>',
-            '<span class="comment_options__date">',
-            '· 1시간 전',
-            '</span>',
-          '</div>',
-        '</div>',
-        '<div class="profile-image"></div>',
-      '</div>'
-    ].join("\n");
-
-      var addZoneBtn = document.querySelector('.button1');
-      addZoneBtn.addEventListener('click', function(e){
-        var added = addZone.value;
-        // touchZone2.innerHTML +=
-        if (isAdmin == true) {
-          touchZone2.innerHTML +=add_html_0+'main'+ add_html_1 + added + add_html_2;
-          addZone.value = "";
-        } else {
-          touchZone2.innerHTML +=add_html_0+'follower'+ add_html_1 + added + add_html_2;
-          addZone.value = "";
-        }
-      })
 
       var addZone = document.querySelector('.add');
       addZone.addEventListener('keydown', function(e){
         var keycode = (e.keyCode ? e.keyCode : e.which);
         if (keycode == '13') {
           var added = addZone.value;
-          if (isAdmin == true) {
-            touchZone2.innerHTML +=add_html_0+'main'+ add_html_1 + added + add_html_2;
-            addZone.value = "";
-          } else {
-            touchZone2.innerHTML +=add_html_0+'follower'+ add_html_1 + added + add_html_2;
-            addZone.value = "";
-          }
+          touchZone2.innerHTML += "</br>" +added;
+          addZone.value = "";
         }
       })
-
-      var isAdmin = true;
-
-      var switchBtn = document.querySelector('.switchBtn');
-      switchBtn.addEventListener('click', function(e){
-        isAdmin = !isAdmin;
-        toggleClass(switchBtn, 'active')
+      var addZoneBtn = document.querySelector('.button1');
+      addZoneBtn.addEventListener('click', function(e){
+        var added = addZone.value;
+        touchZone2.innerHTML += "</br>" +added;
+        addZone.value = "";
       })
     </script>
 

@@ -363,7 +363,7 @@ hammer.on('tap', function (e) {
       var added = addZone.value;
 
       if (isAdmin == true) {
-        curBlocks.backBlocks[0].children[0].innerHTML +=add_html_0+ add_html_1 + added + add_html_2;
+        curBlocks.backBlocks[0].children[0].innerHTML +=add_html_0+'main'+ add_html_1 + added + add_html_2;
         curBlocks.backBlocks[0].children[0].scrollTop = curBlocks.backBlocks[0].children[0].scrollHeight;
         addZone.value = "";
       } else {

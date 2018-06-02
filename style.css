@@ -212,7 +212,7 @@ html,body {
   height: 100%;
   font-size: 2rem;
   display: none;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .back-card > .back-content {

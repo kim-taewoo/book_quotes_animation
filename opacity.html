@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .card {
+        background-color: red;
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+
+  </body>
+  <script type="text/javascript">
+  var array = document.querySelectorAll('.card');
+  var array2 = [].slice.call(document.querySelectorAll('.card'))
+  var test = [1,0.8,0.6,0,0.2];
+
+  var current = {
+    blocks: array2.slice()
+  }
+
+  var initF = function(e) {
+    for (var i = 0; i < current.blocks.length; i++) {
+    console.log(current.blocks[i].style);
+    console.log(test[i]);
+    current.blocks[i].style.opacity = test[i].toString();
+  };
+}
+
+initF()
+  </script>
+</html>

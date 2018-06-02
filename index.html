@@ -4,524 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <title></title>
-    <link rel="stylesheet" href="./style3.css">
+    <!-- <link rel="stylesheet" href="./style3.css"> -->
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" charset="utf-8"></script>
-    <style>
 
-      *, *:before, *:after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        /* -moz-box-sizing: border-box;    /* For Firefox                          */ */
-        /* -webkit-box-sizing: border-box; /* For Safari    */
-      }
-
-      html,body {
-        height: 100%;
-        width: 100%;
-        background-color: #eee;
-        overflow-x: hidden;
-        font-size: 62.5%;
-      }
-
-      .container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        perspective: 500;
-      }
-
-      .cards {
-        width: 35rem;
-        height: 51rem;
-        /* width: 45rem;
-        height: 66rem; */
-        transition: transform 0.6s ease;
-        transform-style: preserve-3d;
-        -webkit-transform-style: preserve-3d;
-      }
-
-      .card {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 60%;
-        border-radius: 10px 10px 4px 4px;
-        display: none;
-        padding: 1.5rem;
-        /* overflow-y: hidden; */
-        backface-visibility: hidden;
-
-      }
-
-      @font-face { font-family: 'Arita-buri-SemiBold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff'); font-weight: normal; font-style: normal; }
-
-      .card p {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        font-size: 3.2rem;
-        overflow: hidden;
-        text-align: center;
-        font-family: 'Arita-buri-SemiBold';
-      }
-
-      .current{
-        display: block;
-        z-index: 5;
-      }
-
-      .next{
-        display: block;
-      }
-
-      .description {
-        position: absolute;
-        top: 38rem;
-        margin: auto 4.2rem;
-        width: 26.6rem;
-      }
-      .description__line {
-        position: absolute;
-        top: 3.5rem;
-        width: 100%;
-        border-bottom: 2px solid #ccc;
-        /* backface-visibility: hidden; */
-      }
-      .description__title, .description__text {
-        position: absolute;
-        will-change: transform, opacity;
-        transform: translateZ(0);
-        opacity: 1;
-        transition: all 0.25s cubic-bezier(0.74, 0.05, 0.94, 0.36);
-        /* backface-visibility: hidden; */
-      }
-      .description__title {
-        width: 100%;
-        font-size: 2rem;
-        font-weight: 600;
-      }
-      .description__text {
-        top: 5rem;
-        font-size: 1.7rem;
-        font-weight: 300;
-        color: #aaa;
-        transition-delay: 0.03s;
-      }
-      .description__text.hide {
-        transition-delay: 0.28s;
-      }
-      .fadeout-up {
-        opacity: 0;
-        transform: translate3D(0, -2rem, 0);
-      }
-      .hide {
-        opacity: 0;
-        transform: translate3D(0, 2rem, 0);
-        transition: all 0.25s cubic-bezier(0.05, 0.67, 0.47, 0.99);
-        transition-delay: 0.25s;
-      }
-      .fadein-up {
-        opacity: 1;
-        transform: translate3D(0, 0, 0);
-      }
-
-      .flip {
-        transform: rotateY(180deg);
-      }
-
-      .front, .back {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 10px;
-        box-shadow: 0.5rem 1rem 3rem rgba(0, 0, 0, 0.7);
-      }
-
-      .front {
-        background-color: white;
-        cursor: -webkit-grab;
-      }
-
-      .back {
-        transform: rotateY(180deg);
-        /* 35
-        51 */
-        top: -1rem;
-        left: -1rem;
-        width: 37rem;
-        height: 55.5rem;
-        background-color: #fff;
-        border-radius: 0;
-        /* overflow-y: auto; */
-        backface-visibility: hidden;
-      }
-
-      .back-card  {
-        position: absolute;
-        padding: 1.2rem;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        font-size: 2rem;
-        display: none;
-        overflow-y: scroll;
-      }
-
-      .back-card > .content {
-        overflow-y: scroll;
-        position: relative;
-        width: 100%;
-        height: 90%;
-        padding: 1.2rem;
-        background-color: skyblue;
-        transition: all 0.5s ease;
-        animation: pictureDown 0.7s;
-        animation-fill-mode: forwards;
-      }
-
-      .container .picture_up {
-      animation: pictureUp 0.7s;
-      animation-fill-mode: forwards;
-      }
-
-      .current{
-        display: block;
-        z-index: 5;
-      }
-
-      ::-webkit-scrollbar {
-        width: 5px;8
-        background-color: #ccc;
-        display: none;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        border-radius: 5px;
-        background-color: white;
-      }
-
-      .back-card .navigation {
-      width: 100%;
-      height: 10%;
-      position: relative;
-      bottom: 0;
-      color: #4e347f;
-      text-align: left;
-      font-size: 3rem;
-      }
-
-      .back-card .navigation .plus {
-      /* position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%); */
-      /* width: 3rem;
-      height: 3rem; */
-      cursor: pointer;
-      width: 2.4rem;
-      height: 2.4rem;
-      }
-      .back-card .navigation .plus .plusHor {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 24px;
-      height: 3px;
-      background: #4e347f;
-      }
-      .back-card .navigation .plus .plusVer {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 3px;
-      height: 24px;
-      background: #4e347f;
-      animation: deactivation 0.7s;
-      animation-fill-mode: forwards;
-      }
-      .back-card .navigation .plus .plusVer_active {
-      animation: activation 0.7s;
-      animation-fill-mode: forwards;
-      width: 300px;
-      height: 55px;
-      top: -38px;
-      }
-      .nav_btns {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      width: 100%;
-      height: 100%;
-      animation: navShow 0.7s;
-      animation-fill-mode: forwards;
-      }
-
-      .nav_btns_hide {
-      animation: navHide 0.7s;
-      animation-fill-mode: forwards;
-      }
-
-      .back-card .options {
-      position: relative;
-      bottom: 20%;
-      width: 100%;
-      height: 10%;
-      display: none;
-      opacity: 0;
-      padding: 0;
-      user-select: none;
-      font-size: 2.4rem;
-      color: #fff;
-      text-align: left;
-      /* background-color: red; */
-      }
-
-      @media screen and (max-height: 480px) {
-          .back-card .options{
-              position: fixed;
-          }
-      }
-
-      .options .switchBtn {
-        background-color: red;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        float: left;
-        width: 15%;
-        height: 100%;
-        cursor: pointer;
-      }
-
-      .switchBtn a {
-
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .switchBtn.active {
-        background-color: green;
-      }
-
-      .options input {
-        width: 70%;
-        height: 100%;
-        float:left;
-        font-size: 2.4rem;
-        padding: 8px;
-      }
-      .options .button1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        float: left;
-        width: 15%;
-        height: 100%;
-        cursor: pointer;
-        background-color: skyblue;
-      }
-
-      .back-card .options i {
-      }
-      .back-card .options_show {
-      animation: optionsDisplay 0.7s;
-      animation-fill-mode: forwards;
-      opacity: 1;
-      }
-
-      @keyframes activation {
-      0% {
-      width: 2px;
-      height: 100%;
-      top: 50%;
-      }
-      50% {
-      width: 2px;
-      height: 55px;
-      top: -50%;
-      }
-      100% {
-      width: 0;
-      top: -50%;
-      }
-      }
-      @keyframes deactivation {
-      0% {
-      width: 0;
-      height: 55px;
-      top: -50%;
-      }
-      50% {
-      width: 2px;
-      height: 55px;
-      top: -50%;
-      }
-      100% {
-      width: 2px;
-      height: 24px;
-      top: 50%;
-      }
-      }
-      @keyframes pictureUp {
-      0% {
-      top: 0;
-      }
-      50% {
-      top: -65px;
-      }
-      100% {
-      top: -65px;
-      }
-      }
-      @keyframes pictureDown {
-      0% {
-      top: -65px;
-      }
-      50% {
-      top: -65px;
-      }
-      100% {
-      top: 0;
-      }
-      }
-      @keyframes optionsDisplay {
-      0% {
-      opacity: 0;
-      }
-      50% {
-      opacity: 0;
-      }
-      100% {
-      opacity: 1;
-      }
-      }
-      @keyframes navShow {
-      0% {
-      opacity: 0;
-      }
-      50% {
-      opacity: 0;
-      }
-      100% {
-      opacity: 1;
-      }
-      }
-      @keyframes navHide {
-      0% {
-      opacity: 1;
-      }
-      50% {
-      opacity: 0;
-      }
-      100% {
-      opacity: 0;
-      }
-      }
-
-      /* 채팅면 구현 */
-
-
-      .comment-wrapper {
-        text-align: left;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      }
-
-      .follower {
-        text-align: left;
-        justify-content: flex-end;
-      }
-
-      .sub {
-        justify-content: flex-end;
-      }
-
-
-      .profile-image {
-        width: 4rem;
-        height: 4rem;
-        border-radius: 2rem;
-        background-image: url('./sana.jpg');
-        background-position: center;
-        background-size: cover;
-      }
-
-      .sub .profile-image {
-        width: 2.4rem;
-        height: 2.4rem;
-        border-radius: 1.2rem;
-      }
-
-      .comment_content{
-        text-align: left;
-        position: relative;
-        /* font-size: 0.82rem; */
-        font-size: 1.4rem;
-        background-color: #eee;
-        padding: 0.5rem 1rem;
-        border-radius: 0.3rem;
-        max-width: 22rem;
-        word-wrap: break-word;
-        box-shadow: 0.1rem 0.1rem 0.1rem #eee;
-      }
-
-      .main .comment_content{
-        background-color: #fff;
-        color:black;
-      }
-
-      .sub .comment_content {
-        max-width: 19.8rem;
-      }
-
-      .num-liked {
-        width: 3.8rem;
-        height: 2.2rem;
-        color: blue;
-        background-color: white;
-        border-radius: 1.1rem;
-        box-shadow: 0.2rem 0.2rem 0.2rem #ccc;
-        padding: 0.4rem;
-        position: absolute;
-        bottom: 0;
-        right: -5%;
-      }
-
-      a {
-        text-decoration: none;
-        color: rgb(77, 102, 224);
-      }
-
-      .comment_options {
-        padding: 0 1rem;
-        font-size: 1.2rem;
-      }
-
-
-    </style>
   </head>
   <body>
     <div class="container">
       <div class="cards">
+        <div class="new-novel">
+          <i class="icon-pencil"></i>
+        </div>
         <div class="front">
           <div class="card div1" style="background-color:skyblue">
             <p>행복한 가정은 서로 닮았지만, 불행한 가정은 모두 저마다의 이유로 불행하다.
@@ -536,22 +32,30 @@
           <div class="card div4" style="background-color:gray">
             <p>박제가 되어버린 천재를 아시오?</p>
           </div>
+          <div class="card div5" style="background-color:brown">
+            <p>테스트</p>
+          </div>
 
           <div class="description">
             <div class="description__title"><span>안나 카레리나</span></div>
             <div class="description__title hide"><span>칼의 노래</span></div>
             <div class="description__title hide"><span>노인과 바다</span></div>
             <div class="description__title hide"><span>날개</span></div>
+            <div class="description__title hide"><span>테스트</span></div>
             <div class="description__line"></div>
             <div class="description__text"><span>레프 톨스토이</span></div>
             <div class="description__text hide"><span>김 훈</span></div>
             <div class="description__text hide"><span>어니스트 헤밍웨이</span></div>
             <div class="description__text hide"><span>이 상</span></div>
+            <div class="description__text hide"><span>테스트</span></div>
           </div>
         </div>
         <div class="back">
+          <div class="filterData">
+            <i class="icon-book-open"></i>
+          </div>
           <div class="back-card">
-            <div class="content">
+            <div class="back-content">
               <div class="comment-wrapper main">
                 <div class="comment">
                   <div class="comment_content">
@@ -682,9 +186,7 @@
 
           </div>
           <div class="back-card">
-            <div class="content" style="background-color: pink">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="back-content" style="background-color: pink">
             </div>
             <div class="navigation">
               <div class="nav_btns">
@@ -699,6 +201,9 @@
               </div>
             </div>
             <div class="options">
+              <div class="switchBtn">
+                <a class="" href="#"><i class="icon-key"></i></a>
+              </div>
               <input class="add" type="text" name="" value="">
               <div class="button1">
                 <i class="icon-pencil"></i>
@@ -710,9 +215,7 @@
 
           </div>
           <div class="back-card">
-            <div class="content" style="background-color:yellow">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="back-content" style="background-color:yellow">
             </div>
             <div class="navigation">
               <div class="nav_btns">
@@ -727,6 +230,9 @@
               </div>
             </div>
             <div class="options">
+              <div class="switchBtn">
+                <a class="" href="#"><i class="icon-key"></i></a>
+              </div>
               <input class="add" type="text" name="" value="">
               <div class="button1">
                 <i class="icon-pencil"></i>
@@ -736,9 +242,7 @@
 
           </div>
           <div class="back-card">
-            <div class="content" style="background-color: gray;">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="back-content" style="background-color: gray;">
             </div>
             <div class="navigation">
               <div class="nav_btns">
@@ -753,440 +257,48 @@
               </div>
             </div>
             <div class="options">
+              <div class="switchBtn">
+                <a class="" href="#"><i class="icon-key"></i></a>
+              </div>
               <input class="add" type="text" name="" value="">
               <div class="button1">
                 <i class="icon-pencil"></i>
               </div>
               <!-- <textarea placeholder="내용을 입력하세요" name="name" rows="8" cols="80"></textarea> -->
             </div>
+          </div>
+          <div class="back-card">
+            <div class="back-content" style="background-color:brown">
+            </div>
+            <div class="navigation">
+              <div class="nav_btns">
+                <i class="nav_btn icon-action-undo" aria-hidden="true"></i>
+                <i class="nav_btn icon-heart" ></i>
+                <div id="plusButton" class="plus">
+                  <div class="plusHor"></div>
+                  <div class="plusVer "></div>
+                </div>
+                <i class="nav_btn icon-bell" aria-hidden="true"></i>
+                <i class="nav_btn icon-bubble" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="options">
+              <div class="switchBtn">
+                <a class="" href="#"><i class="icon-key"></i></a>
+              </div>
+              <input class="add" type="text" name="" value="">
+              <div class="button1">
+                <i class="icon-pencil"></i>
+              </div>
+              <!-- <textarea placeholder="내용을 입력하세요" name="name" rows="8" cols="80"></textarea> -->
+            </div>
+
           </div>
         </div>
     </div>
 
   </div>
 
-    <script>
-      const cards = [].slice.call(document.querySelectorAll('.card'));
-      const backCards = [].slice.call(document.querySelectorAll('.back-card'));
-      const titles = [].slice.call(document.querySelectorAll(".description__title"));
-      const texts = [].slice.call(document.querySelectorAll(".description__text"));
-
-
-      var fromTo = (from, to, prgrs = 0) => from + (to - from) * prgrs;
-
-      var easing = {
-        inCubic: function(t, b, c, d) { // t: current time, b: begInnIng value, c: change In value, d: duration
-          var ts = (t /= d) * t;
-          var tc = ts * t;
-          return b + c * (1.7 * tc * ts - 2.05 * ts * ts + 1.5 * tc - 0.2 * ts + 0.05 * t);
-        }
-      };
-
-      var transforms = {
-        translate3D: function(x = 0, y = 0, z = 0, el = "px") {
-          return `translate3d(${x}${el}, ${y}${el}, ${z}${el})`;
-        },
-
-        rotate3d: function(x = 0, y = 0, z = 0, deg = 0) {
-          return `rotate3d(${x}, ${y}, ${z}, ${deg}deg)`;
-        },
-
-        rotate: function(deg = 0) {
-          return `rotate(${deg}deg)`;
-        },
-
-        scale: function(x = 0, y = 0) {
-          return `scale(${x}, ${y})`;
-        },
-
-        perspective: function(val = 0, el = "px") {
-          return `perspective(${val}${el})`;
-        }
-      };
-
-      var descriptions = {
-        index: 0,
-        timeout: 550,
-        titles: titles.slice(),
-        texts: texts.slice(),
-
-        animateDescription: function() {
-          this.titles[0].classList.add("fadeout-up");
-          this.titles[1].classList.add("fadein-up");
-          this.texts[0].classList.add("fadeout-up");
-          this.texts[1].classList.add("fadein-up");
-        },
-
-        swapDescription: function() {
-          let shdC = this.titles.shift();
-          let shdT = this.texts.shift();
-
-          let count = titles.length;
-          if (count > this.index + 4) {
-            this.titles.push(countries[this.index + 5]);
-            this.texts.push(texts[this.index + 5]);
-          }
-          else {
-            this.titles.push(shdC);
-            this.texts.push(shdT);
-          }
-          this.index === count ? this.index = 0 : this.index++;
-          this.initDescriptions();
-        },
-
-        initDescriptions: function () {
-          let length = this.titles.length;
-          this.titles[0].classList.remove("hide", "fadein-up");
-          this.titles[length - 1].classList.add("hide")
-          this.titles[length - 1].classList.remove("fadeout-up");
-          this.texts[0].classList.remove("hide", "fadein-up");
-          this.texts[length - 1].classList.add("hide")
-          this.texts[length - 1].classList.remove("fadeout-up");
-        }
-      };
-
-
-      var curBlocks = {
-        blocks: cards.slice(),
-        backBlocks: backCards.slice(),
-        index: 0,
-
-        swapBlocks: function() {
-          let shd = this.blocks.shift();
-          let backShd = this.backBlocks.shift();
-          let count = cards.length;
-          if (count > this.index +4) {
-            this.blocks.push(cards[this.index +5]);
-            this.backBlocks.push(backCards[this.index +5]);
-          }
-          else {
-            this.blocks.push(shd);
-            this.backBlocks.push(backShd);
-          }
-          shd.classList.remove('current');
-          backShd.classList.remove('current');
-          this.index === count ? this.index = 0 : this.index++;
-          initScene();
-        }
-      };
-
-      var block = {
-        width: 35,
-        heigth: 30.6,
-        b2scale: 32 / 35,
-        upHeigth: 1,
-
-        b2caclH: 0,
-
-        interact: false
-      };
-
-      var initScene = function() {
-        block.b2caclH =
-        block.heigth * (1 - block.b2scale) * (1 / block.b2scale) / 2
-        + block.upHeigth * (1 / block.b2scale);
-
-        curBlocks.blocks[0].style.transform = transforms.translate3D(0, 0, 0, "rem");
-        curBlocks.blocks[1].style.transform =
-        transforms.scale(block.b2scale, block.b2scale)
-        + transforms.translate3D(0, block.b2caclH, 0, "rem");
-
-        curBlocks.blocks[0].style.opacity = 1;
-        curBlocks.blocks[1].style.opacity = 0.1;
-
-        curBlocks.blocks[0].className = "card current";
-        curBlocks.blocks[1].className = "card next";
-        curBlocks.backBlocks[0].className = "back-card current";
-        // bindDrag();
-      };
-
-      initScene();
-
-      var drag = {
-        degree: 2.4,
-        upHeight: 1.7,
-        maxDrag: 78,
-        b2scale: 0.98,
-        dx: 0,
-        frameBusy: false,
-        helloSafari: 2.8 // need to add this coz of strange behavior
-      };
-
-
-      var dragBlock = function() {
-        const maxStep = drag.maxDrag;
-        let curStep = drag.dx;
-        if (curStep > maxStep) curStep = maxStep;
-        if (curStep < -maxStep) curStep = -maxStep;
-
-        let progress = curStep / maxStep;
-        let curDeg = drag.degree * progress;
-        let curUpLen = drag.upHeight * Math.abs(curStep) / maxStep;
-        let curScaleBlock2 = drag.b2scale + (1 - drag.b2scale) * (maxStep - curStep) / maxStep;
-
-        curBlocks.blocks[0].style.transform =
-            transforms.perspective(220, "rem")
-          + transforms.rotate(curDeg)
-          + transforms.rotate3d(1, 1, 0, curDeg * 3)
-          + transforms.translate3D(0, -curUpLen, 0, "rem");
-
-        curBlocks.blocks[1].style.transform =
-            transforms.scale(block.b2scale * curScaleBlock2, block.b2scale * curScaleBlock2)
-          + transforms.translate3D(0, block.b2caclH - curUpLen / 4, 0, "rem")
-          + transforms.rotate(curDeg / 3)
-          + transforms.rotate3d(1, 1, 0, curDeg * drag.helloSafari);
-
-        curBlocks.blocks[0].style.opacity = 1;
-        curBlocks.blocks[1].style.opacity = fromTo(0.1, 0.7, progress);
-        drag.frameBusy = false;
-      };
-
-      var throwing = {
-        animating: false,
-        curStep: 0,
-        maxStep: 15
-      };
-
-      var throwBlock = function() {
-        if (++throwing.curStep > throwing.maxStep) {
-          // hammer.off("mousedown touchstart");
-          throwing.curStep = 0;
-          drag.dx = 0;
-          curBlocks.swapBlocks();
-          return;
-        }
-        //
-        let progress = easing.inCubic(throwing.curStep, 0, 1, throwing.maxStep);
-        let delta = easing.inCubic(throwing.curStep, 0, 1, throwing.maxStep) * 40;
-
-        curBlocks.blocks[0].style.transform =
-            transforms.rotate(drag.degree + delta / 2)
-          + transforms.rotate3d(1, 1, 0, drag.degree * 3)
-          + transforms.translate3D(delta, -drag.upHeight - delta / 1.2, 0, "rem");
-
-        let b2Scale = fromTo(block.b2scale * drag.b2scale, 1, progress);
-        let b2TransY = fromTo(block.b2caclH - drag.upHeight / 4, 0, progress);
-        let b2Rot = fromTo(drag.degree / 3, 0, progress);
-
-        curBlocks.blocks[1].style.transform =
-            transforms.scale(b2Scale, b2Scale)
-          + transforms.translate3D(0, b2TransY, 0, "rem")
-          + transforms.rotate(b2Rot)
-          + transforms.rotate3d(1, 1, 0, drag.degree * drag.helloSafari);
-
-        curBlocks.blocks[0].style.opacity = fromTo(1, 0.5, progress);
-        curBlocks.blocks[1].style.opacity = fromTo(0.7, 1, progress);
-
-        requestAnimationFrame(throwBlock);
-      };
-
-      // function bindDrag() {
-      var touchZone = document.querySelector('.front')
-      var hammer = new Hammer(touchZone);
-      hammer.on('panmove', function(e){
-        block.interact = true;
-        if (e.deltaX <= 0) e.deltaX = 0;
-        if (e.deltaY >= 0) e.deltaY = 0;
-        drag.dx = Math.sqrt(Math.pow(e.deltaX, 2) + Math.pow(e.deltaY, 2));
-        if (!drag.dx) return;
-        if (drag.frameBusy) return;
-        drag.frameBusy = true;
-        requestAnimationFrame(dragBlock);
-      })
-      hammer.on("panend", function (e) {
-        if (Math.abs(drag.dx) < drag.maxDrag) {
-          drag.dx = 0;
-          requestAnimationFrame(dragBlock);
-        }
-        else {
-          descriptions.animateDescription();
-          setTimeout(descriptions.swapDescription.bind(descriptions), descriptions.timeout);
-          requestAnimationFrame(throwBlock);
-        }
-      })
-
-      hammer.on('tap', function (e) {
-        if (!touchZone.parentElement.classList.contains('flip')) {
-          touchZone.parentElement.classList.add('flip');
-          setTimeout(function() {toggle(touchZone)},700);
-        }
-      })
-
-      var touchZone2 = document.querySelector('.content')
-      var hammer2 = new Hammer(touchZone2);
-
-      hammer2.on('tap', function (e) {
-        if (touchZone.parentElement.className.indexOf('flip')) {
-          touchZone.parentElement.classList.remove('flip');
-          toggle(touchZone);
-        }
-      })
-
-      // var touchZone2 = document.querySelector('.back')
-      // var hammer2 = new Hammer(touchZone2);
-      //
-      // hammer2.on('tap', function (e) {
-      //   if (e.target.offsetParent.className == "content") {
-      //     if (touchZone.parentElement.className.indexOf('flip')) {
-      //       touchZone.parentElement.classList.remove('flip');
-      //       toggle(touchZone);
-      //     }
-      //   }
-      // })
-
-
-
-
-
-      function prevAnimation() {
-        let initDel = 500;
-        let frames = drag.maxDrag;
-        let spd = 15;
-        for (let i = 1; i < frames; i++) {
-          setTimeout(() => {
-            if (!block.interact) {
-              drag.dx = i;
-              if (drag.frameBusy) return;
-              requestAnimationFrame(dragBlock);
-            }
-          }, initDel + spd * i);
-        }
-        for (let i = frames; i >= 0; i--) {
-          setTimeout(() => {
-            if (!block.interact) {
-              drag.dx = i;
-              if (drag.frameBusy) return;
-              requestAnimationFrame(dragBlock);
-            }
-          }, initDel + spd * (frames * 2 + 1 - i));
-        }
-      }
-      prevAnimation()
-
-
-      var plusButton = document.getElementById('plusButton');
-      var plusVer = document.querySelector('.plusVer');
-      var content = document.querySelector('.content');
-      var options = document.querySelector('.options');
-      var nav_btns = document.querySelectorAll('.nav_btn');
-      plusButton.addEventListener('click', function(e){
-        toggleClass(plusVer,'plusVer_active');
-        toggleClass(content,'picture_up');
-        toggle(options);
-        toggleClass(options,'options_show');
-        toggleClassAll(nav_btns,'nav_btns_hide');
-      });
-
-      function toggleClass(el, x) {
-        if ( -1 !== el.className.indexOf(x) ) {
-          el.className = el.className.replace( " "+x, "" );
-        } else {
-          el.className += " "+x;
-        }
-      }
-
-      function toggleClassAll(list, x) {
-        for (var i = 0; i < list.length; i++) {
-          if ( -1 !== list[i].className.indexOf(x) ) {
-            list[i].className = list[i].className.replace( " "+x, "" );
-          } else {
-            list[i].className += " "+x;
-          }
-        }
-      }
-
-      var show = function (elem) {
-      	elem.style.display = 'block';
-      };
-
-      // Hide an element
-      var hide = function (elem) {
-      	elem.style.display = 'none';
-      };
-
-      // Toggle element visibility
-      var toggle = function (elem) {
-      	// If the element is visible, hide it
-      	if (window.getComputedStyle(elem).display === 'block') {
-      		hide(elem);
-      		return;
-      	}
-      	show(elem);
-      };
-
-      var add_html_0 =
-      '<div class="comment-wrapper '
-
-      var add_html_1 = [
-        '">',
-        '<div class="comment">',
-          '<div class="comment_content">',
-            '<span class="name"><a class="" href="#">사나</a></span>',
-            '<span class="content">'].join('\n');
-
-      var add_html_2 = [
-            '</span>',
-            '<div class="num-liked">',
-              '<i class="icon-like"> 3</i>',
-            '</div>',
-          '</div>',
-          '<div class="comment_options">',
-            '<span class="comment-main_options__like">',
-              '<a href="#">좋아요</a>',
-            '</span>',
-
-            '<span class="comment_options__reply">',
-              '<a href="#">· 댓글 달기</a>',
-            '</span>',
-            '<span class="comment_options__date">',
-            '· 1시간 전',
-            '</span>',
-          '</div>',
-        '</div>',
-        '<div class="profile-image"></div>',
-      '</div>'
-    ].join("\n");
-
-      var addZoneBtn = document.querySelector('.button1');
-      addZoneBtn.addEventListener('click', function(e){
-        var added = addZone.value;
-        // touchZone2.innerHTML +=
-        if (isAdmin == true) {
-          touchZone2.innerHTML +=add_html_0+'main'+ add_html_1 + added + add_html_2;
-          touchZone2.scrollTop = touchZone2.scrollHeight;
-          addZone.value = "";
-        } else {
-          touchZone2.innerHTML +=add_html_0+'follower'+ add_html_1 + added + add_html_2;
-          touchZone2.scrollTop = touchZone2.scrollHeight;
-          addZone.value = "";
-        }
-      })
-
-      var addZone = document.querySelector('.add');
-      addZone.addEventListener('keydown', function(e){
-        var keycode = (e.keyCode ? e.keyCode : e.which);
-        if (keycode == '13') {
-          var added = addZone.value;
-          if (isAdmin == true) {
-            touchZone2.innerHTML +=add_html_0+'main'+ add_html_1 + added + add_html_2;
-            touchZone2.scrollTop = touchZone2.scrollHeight;
-            addZone.value = "";
-          } else {
-            touchZone2.innerHTML +=add_html_0+'follower'+ add_html_1 + added + add_html_2;
-            touchZone2.scrollTop = touchZone2.scrollHeight;
-            addZone.value = "";
-          }
-        }
-      })
-
-      var isAdmin = true;
-
-      var switchBtn = document.querySelector('.switchBtn');
-      switchBtn.addEventListener('click', function(e){
-        isAdmin = !isAdmin;
-        toggleClass(switchBtn, 'active')
-      })
-    </script>
-
+  <script src="./main.js" charset="utf-8"></script>
   </body>
 </html>
